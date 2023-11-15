@@ -1,6 +1,6 @@
-# AWS Elasticache Redis Static Template
+# Redis Static Template
 
-This is a static template for AWS Elasticache Redis.
+This is a static template for Redis.
 
 ## Examples
 
