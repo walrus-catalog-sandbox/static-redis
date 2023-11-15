@@ -1,17 +1,10 @@
-# Awesome Walrus Template
+# AWS Elasticache Redis Static Template
 
-Start here to create an awesome Walrus template.
-
-## Usage
-
-```hcl
-
-```
+This is a static template for AWS Elasticache Redis.
 
 ## Examples
 
-- ...
-- ...
+- [Complete](./examples/complete)
 
 ## Contributing
 
@@ -30,9 +23,7 @@ No providers.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_submodule"></a> [submodule](#module\_submodule) | ./modules/submodule | n/a |
+No modules.
 
 ## Resources
 
@@ -43,18 +34,20 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_context"></a> [context](#input\_context) | Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.<br><br>Examples:<pre>context:<br>  project:<br>    name: string<br>    id: string<br>  environment:<br>    name: string<br>    id: string<br>  resource:<br>    name: string<br>    id: string</pre> | `map(any)` | `{}` | no |
+| <a name="input_selector"></a> [selector](#input\_selector) | The selector, a map, which is used  for dependencies or collaborations. | `map(any)` | `{}` | no |
+| <a name="input_endpoint_internal"></a> [endpoint\_internal](#input\_endpoint\_internal) | The internal endpoints of the resource. | `list(string)` | `[]` | no |
+| <a name="input_endpoint_internal_readonly"></a> [endpoint\_internal\_readonly](#input\_endpoint\_internal\_readonly) | The internal readonly endpoints of the resource. | `list(string)` | `[]` | no |
+| <a name="input_password"></a> [password](#input\_password) | The password of the redis service. | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_walrus_project_name"></a> [walrus\_project\_name](#output\_walrus\_project\_name) | The name of project where deployed in Walrus. |
-| <a name="output_walrus_project_id"></a> [walrus\_project\_id](#output\_walrus\_project\_id) | The id of project where deployed in Walrus. |
-| <a name="output_walrus_environment_name"></a> [walrus\_environment\_name](#output\_walrus\_environment\_name) | The name of environment where deployed in Walrus. |
-| <a name="output_walrus_environment_id"></a> [walrus\_environment\_id](#output\_walrus\_environment\_id) | The id of environment where deployed in Walrus. |
-| <a name="output_walrus_resource_name"></a> [walrus\_resource\_name](#output\_walrus\_resource\_name) | The name of resource where deployed in Walrus. |
-| <a name="output_walrus_resource_id"></a> [walrus\_resource\_id](#output\_walrus\_resource\_id) | The id of resource where deployed in Walrus. |
-| <a name="output_submodule"></a> [submodule](#output\_submodule) | The message from submodule. |
+| <a name="output_context"></a> [context](#output\_context) | The input context, a map, which is used for orchestration. |
+| <a name="output_selector"></a> [selector](#output\_selector) | The selector, a map, which is used for dependencies or collaborations. |
+| <a name="output_endpoint_internal"></a> [endpoint\_internal](#output\_endpoint\_internal) | The internal endpoints, a string list, which are used for internal access. |
+| <a name="output_endpoint_internal_readonly"></a> [endpoint\_internal\_readonly](#output\_endpoint\_internal\_readonly) | The internal readonly endpoints, a string list, which are used for internal readonly access. |
+| <a name="output_password"></a> [password](#output\_password) | The password of redis service. |
 <!-- END_TF_DOCS -->
 
 ## License
