@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template terraform-static-redis
+components:
+  schemas:
+    variables:
+      required:
+      - password
+      type: object
+      properties:
+        context:
+          title: Context
+          type: object
+          description: |
+            Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
+
+            Examples:
+            ```
+            context:
+              project:
+                name: string
+                id: string
+              environment:
+                name: string
+                id: string
+              resource:
+                name: string
+                id: string
+            ```
+          default: {}
+          additionalProperties:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            hidden: true
+            order: 1
+        selector:
+          title: Selector
+          type: object
+          description: The selector, a map, which is used  for dependencies or collaborations.
+          default: {}
+          additionalProperties:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 2
+        endpoint_internal:
+          title: Endpoint Internal
+          type: array
+          description: The internal endpoints of the resource.
+          default: []
+          items:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 3
+        endpoint_internal_readonly:
+          title: Endpoint Internal Readonly
+          type: array
+          description: The internal readonly endpoints of the resource.
+          default: []
+          items:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 4
+        password:
+          title: Password
+          type: string
+          description: The password of the redis service.
+          format: password
+          writeOnly: true
+          x-walrus-ui:
+            group: Basic
+            order: 5
