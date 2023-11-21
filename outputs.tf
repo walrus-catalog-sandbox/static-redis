@@ -1,25 +1,64 @@
+#
+# Orchestration
+#
+
 output "context" {
   description = "The input context, a map, which is used for orchestration."
   value       = var.context
 }
 
-output "selector" {
-  description = "The selector, a map, which is used for dependencies or collaborations."
-  value       = var.selector
+output "refer" {
+  description = "The refer, a map, including hosts, ports and password, which is used for dependencies or collaborations."
+  sensitive = true
+  value = {
+    schema = "static:redis"
+    params = {
+      selector       = {}
+      hosts          = var.hosts
+      hosts_readonly = var.hosts_readonly
+      ports          = var.ports
+      password       = nonsensitive(var.password)
+    }
+  }
 }
 
-output "endpoint_internal" {
-  description = "The internal endpoints, a string list, which are used for internal access."
-  value       = var.endpoint_internal
+#
+# Reference
+#
+
+locals {
+  endpoints = flatten([
+    for c in var.hosts : formatlist("%s:%d", c, var.ports)
+  ])
+  endpoints_readonly = flatten([
+    for c in(var.hosts_readonly != null ? var.hosts_readonly : []) : formatlist("%s:%d", c, var.ports)
+  ])
 }
 
-output "endpoint_internal_readonly" {
-  description = "The internal readonly endpoints, a string list, which are used for internal readonly access."
-  value       = var.endpoint_internal_readonly
+output "connection" {
+  description = "The connection, a string combined host and port, might be a comma string or a single string."
+  value       = join(",", local.endpoints)
+}
+
+output "connection_readonly" {
+  description = "The readonly connection, a string combined host and port, might be a comma string or a single string."
+  value       = join(",", local.endpoints_readonly)
 }
 
 output "password" {
   value       = var.password
   description = "The password of redis service."
   sensitive   = true
+}
+
+## UI display
+
+output "endpoints" {
+  description = "The endpoints, a string, might be a comma string or a single string."
+  value       = local.endpoints
+}
+
+output "endpoints_readonly" {
+  description = "The readonly endpoints, a string, might be a comma string or a single string."
+  value       = local.endpoints_readonly
 }

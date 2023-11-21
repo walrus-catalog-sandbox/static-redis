@@ -20,39 +20,37 @@ module "this" {
     }
   }
 
-  selector = {
-    "walrus.seal.io/project-id"       = "project_id"
-    "walrus.seal.io/environment-id"   = "environment_id"
-    "walrus.seal.io/resource-id"      = "resource_id"
-    "walrus.seal.io/project-name"     = "project_name"
-    "walrus.seal.io/environment-name" = "environment_name"
-    "walrus.seal.io/resource-name"    = "resource_name"
-  }
-
-  endpoint_internal = ["example.default-test.example-dev-dns"]
-
-  endpoint_internal_readonly = ["example.read-only.default-test.example-dev-dns"]
-
-  password = "your-password"
+  hosts          = ["example.default-test.example-dev-dns"]
+  hosts_readonly = ["example.read-only.default-test.example-dev-dns"]
+  password       = "your-password"
 }
 
 output "context" {
   value = module.this.context
 }
 
-output "selector" {
-  value = module.this.selector
+output "refer" {
+  value = module.this.refer
+  sensitive = true
 }
 
-output "endpoint_internal" {
-  value = module.this.endpoint_internal
+output "connection" {
+  value = module.this.connection
 }
 
-output "endpoint_internal_readonly" {
-  value = module.this.endpoint_internal_readonly
+output "connection_readonly" {
+  value = module.this.connection_readonly
 }
 
 output "password" {
   value     = module.this.password
   sensitive = true
+}
+
+output "endpoints" {
+  value = module.this.endpoints
+}
+
+output "endpoints_readonly" {
+  value = module.this.endpoints_readonly
 }

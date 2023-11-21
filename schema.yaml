@@ -23,23 +23,20 @@ components:
             group: Advanced
             hidden: true
             order: 1
-        selector:
-          title: Selector
-          type: object
-          description: The selector, a map, which is used for dependencies or collaborations.
-          default: {}
-          additionalProperties:
-            type: object
-            x-walrus-ui:
-              colSpan: 12
+        hosts:
+          title: Hosts
+          type: array
+          description: The host list of the Redis resource.
+          items:
+            type: string
           x-walrus-ui:
             colSpan: 12
             group: Basic
             order: 2
-        endpoint_internal:
-          title: Endpoint Internal
+        hosts_readonly:
+          title: Hosts Readonly
           type: array
-          description: The internal endpoints of the resource.
+          description: The readonly host list of the Redis resource.
           default: []
           items:
             type: string
@@ -47,13 +44,14 @@ components:
             colSpan: 12
             group: Basic
             order: 3
-        endpoint_internal_readonly:
-          title: Endpoint Internal Readonly
+        ports:
+          title: Ports
           type: array
-          description: The internal readonly endpoints of the resource.
-          default: []
+          description: The port of the Redis resource.
+          default:
+          - 6379
           items:
-            type: string
+            type: number
           x-walrus-ui:
             colSpan: 12
             group: Basic

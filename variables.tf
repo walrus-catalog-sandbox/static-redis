@@ -24,27 +24,29 @@ EOF
   default     = {}
 }
 
-variable "selector" {
-  description = "The selector, a map, which is used for dependencies or collaborations."
-  type        = map(any)
-  default     = {}
+#
+# Connection Fields
+#
+
+variable "hosts" {
+  description = "The host list of the Redis resource."
+  type        = list(string)
 }
 
-variable "endpoint_internal" {
-  description = "The internal endpoints of the resource."
+variable "hosts_readonly" {
+  description = "The readonly host list of the Redis resource."
   type        = list(string)
   default     = []
 }
 
-variable "endpoint_internal_readonly" {
-  description = "The internal readonly endpoints of the resource."
-  type        = list(string)
-  default     = []
+variable "ports" {
+  description = "The port of the Redis resource."
+  type        = list(number)
+  default     = [6379]
 }
 
 variable "password" {
-  description = "The password of the redis service."
+  description = "The password of the Redis service."
   type        = string
   sensitive   = true
 }
-
