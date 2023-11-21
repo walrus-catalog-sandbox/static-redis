@@ -29,24 +29,24 @@ EOF
 #
 
 variable "hosts" {
-  description = "The host list of the Redis resource."
+  description = "The host list of the Redis service."
   type        = list(string)
 }
 
 variable "hosts_readonly" {
-  description = "The readonly host list of the Redis resource."
+  description = "The readonly host list of the Redis service."
   type        = list(string)
   default     = []
 }
 
-variable "ports" {
-  description = "The port of the Redis resource."
-  type        = list(number)
-  default     = [6379]
+variable "port" {
+  description = "The port of the Redis service."
+  type        = number
+  default     = 6379
 }
 
 variable "password" {
-  description = "The password of the Redis service."
+  description = "The password of the account to access the service."
   type        = string
   sensitive   = true
 }

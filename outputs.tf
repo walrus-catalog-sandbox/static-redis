@@ -16,7 +16,7 @@ output "refer" {
       selector       = {}
       hosts          = var.hosts
       hosts_readonly = var.hosts_readonly
-      ports          = var.ports
+      port           = var.port
       password       = nonsensitive(var.password)
     }
   }
@@ -28,37 +28,47 @@ output "refer" {
 
 locals {
   endpoints = flatten([
-    for c in var.hosts : formatlist("%s:%d", c, var.ports)
+    for c in var.hosts : format("%s:%d", c, var.port)
   ])
   endpoints_readonly = flatten([
-    for c in(var.hosts_readonly != null ? var.hosts_readonly : []) : formatlist("%s:%d", c, var.ports)
+    for c in(var.hosts_readonly != null ? var.hosts_readonly : []) : format("%s:%d", c, var.port)
   ])
 }
 
 output "connection" {
-  description = "The connection, a string combined host and port, might be a comma string or a single string."
+  description = "The connection, a string combined host and port, might be a comma separated string or a single string."
   value       = join(",", local.endpoints)
 }
 
+output "connection_without_port" {
+  description = "The connection without port, a string combined host, might be a comma separated string or a single string."
+  value       = join(",", var.hosts)
+}
+
 output "connection_readonly" {
-  description = "The readonly connection, a string combined host and port, might be a comma string or a single string."
+  description = "The readonly connection, a string combined host and port, might be a comma separated string or a single string."
   value       = join(",", local.endpoints_readonly)
+}
+
+output "connection_without_port_readonly" {
+  description = "The readonly connection without port, a string combined host, might be a comma separated string or a single string."
+  value       = join(",", var.hosts_readonly)
 }
 
 output "password" {
   value       = var.password
-  description = "The password of Redis service."
+  description = "The password of the account to access the service."
   sensitive   = true
 }
 
 ## UI display
 
 output "endpoints" {
-  description = "The endpoints, a string, might be a comma string or a single string."
+  description = "The endpoints, a list of string combined host and port."
   value       = local.endpoints
 }
 
 output "endpoints_readonly" {
-  description = "The readonly endpoints, a string, might be a comma string or a single string."
+  description = "The readonly endpoints, a list of string combined host and port."
   value       = local.endpoints_readonly
 }

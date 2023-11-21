@@ -38,8 +38,16 @@ output "connection" {
   value = module.this.connection
 }
 
+output "connection_without_port" {
+  value = module.this.connection_without_port
+}
+
 output "connection_readonly" {
   value = module.this.connection_readonly
+}
+
+output "connection_without_port_readonly" {
+  value = module.this.connection_without_port_readonly
 }
 
 output "password" {

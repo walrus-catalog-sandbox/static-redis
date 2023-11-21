@@ -5,6 +5,7 @@ components:
   schemas:
     variables:
       required:
+      - hosts
       - password
       type: object
       properties:
@@ -26,7 +27,7 @@ components:
         hosts:
           title: Hosts
           type: array
-          description: The host list of the Redis resource.
+          description: The host list of the Redis service.
           items:
             type: string
           x-walrus-ui:
@@ -36,7 +37,7 @@ components:
         hosts_readonly:
           title: Hosts Readonly
           type: array
-          description: The readonly host list of the Redis resource.
+          description: The readonly host list of the Redis service.
           default: []
           items:
             type: string
@@ -44,22 +45,18 @@ components:
             colSpan: 12
             group: Basic
             order: 3
-        ports:
-          title: Ports
-          type: array
-          description: The port of the Redis resource.
-          default:
-          - 6379
-          items:
-            type: number
+        port:
+          title: Port
+          type: number
+          description: The port of the Redis service.
+          default: 6379
           x-walrus-ui:
-            colSpan: 12
             group: Basic
-            order: 4
+            order: 3
         password:
           title: Password
           type: string
-          description: The password of the redis service.
+          description: The password of the account to access the service.
           format: password
           writeOnly: true
           x-walrus-ui:
