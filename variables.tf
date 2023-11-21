@@ -25,7 +25,7 @@ EOF
 }
 
 variable "selector" {
-  description = "The selector, a map, which is used  for dependencies or collaborations."
+  description = "The selector, a map, which is used for dependencies or collaborations."
   type        = map(any)
   default     = {}
 }

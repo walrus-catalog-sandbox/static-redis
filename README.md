@@ -34,7 +34,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_context"></a> [context](#input\_context) | Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.<br><br>Examples:<pre>context:<br>  project:<br>    name: string<br>    id: string<br>  environment:<br>    name: string<br>    id: string<br>  resource:<br>    name: string<br>    id: string</pre> | `map(any)` | `{}` | no |
-| <a name="input_selector"></a> [selector](#input\_selector) | The selector, a map, which is used  for dependencies or collaborations. | `map(any)` | `{}` | no |
+| <a name="input_selector"></a> [selector](#input\_selector) | The selector, a map, which is used for dependencies or collaborations. | `map(any)` | `{}` | no |
 | <a name="input_endpoint_internal"></a> [endpoint\_internal](#input\_endpoint\_internal) | The internal endpoints of the resource. | `list(string)` | `[]` | no |
 | <a name="input_endpoint_internal_readonly"></a> [endpoint\_internal\_readonly](#input\_endpoint\_internal\_readonly) | The internal readonly endpoints of the resource. | `list(string)` | `[]` | no |
 | <a name="input_password"></a> [password](#input\_password) | The password of the redis service. | `string` | n/a | yes |
