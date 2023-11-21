@@ -8,8 +8,8 @@ output "context" {
 }
 
 output "refer" {
-  description = "The refer, a map, including hosts, ports and password, which is used for dependencies or collaborations."
-  sensitive = true
+  description = "The refer, a map, including hosts, ports and account, which is used for dependencies or collaborations."
+  sensitive   = true
   value = {
     schema = "static:redis"
     params = {
@@ -47,7 +47,7 @@ output "connection_readonly" {
 
 output "password" {
   value       = var.password
-  description = "The password of redis service."
+  description = "The password of Redis service."
   sensitive   = true
 }
 

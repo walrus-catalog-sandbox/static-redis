@@ -30,7 +30,7 @@ output "context" {
 }
 
 output "refer" {
-  value = module.this.refer
+  value     = module.this.refer
   sensitive = true
 }
 

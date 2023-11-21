@@ -44,10 +44,10 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_context"></a> [context](#output\_context) | The input context, a map, which is used for orchestration. |
-| <a name="output_refer"></a> [refer](#output\_refer) | The refer, a map, including hosts, ports and password, which is used for dependencies or collaborations. |
+| <a name="output_refer"></a> [refer](#output\_refer) | The refer, a map, including hosts, ports and account, which is used for dependencies or collaborations. |
 | <a name="output_connection"></a> [connection](#output\_connection) | The connection, a string combined host and port, might be a comma string or a single string. |
 | <a name="output_connection_readonly"></a> [connection\_readonly](#output\_connection\_readonly) | The readonly connection, a string combined host and port, might be a comma string or a single string. |
-| <a name="output_password"></a> [password](#output\_password) | The password of redis service. |
+| <a name="output_password"></a> [password](#output\_password) | The password of Redis service. |
 | <a name="output_endpoints"></a> [endpoints](#output\_endpoints) | The endpoints, a string, might be a comma string or a single string. |
 | <a name="output_endpoints_readonly"></a> [endpoints\_readonly](#output\_endpoints\_readonly) | The readonly endpoints, a string, might be a comma string or a single string. |
 <!-- END_TF_DOCS -->
