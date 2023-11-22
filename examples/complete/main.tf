@@ -30,29 +30,31 @@ output "context" {
 }
 
 output "refer" {
-  value     = module.this.refer
-  sensitive = true
+  value = nonsensitive(module.this.refer)
 }
 
 output "connection" {
   value = module.this.connection
 }
 
-output "connection_without_port" {
-  value = module.this.connection_without_port
-}
-
 output "connection_readonly" {
   value = module.this.connection_readonly
 }
 
-output "connection_without_port_readonly" {
-  value = module.this.connection_without_port_readonly
+output "address" {
+  value = module.this.address
+}
+
+output "address_readonly" {
+  value = module.this.address_readonly
+}
+
+output "port" {
+  value = module.this.port
 }
 
 output "password" {
-  value     = module.this.password
-  sensitive = true
+  value = nonsensitive(module.this.password)
 }
 
 output "endpoints" {
