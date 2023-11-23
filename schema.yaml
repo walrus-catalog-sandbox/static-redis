@@ -55,7 +55,7 @@ components:
           nullable: true
           x-walrus-ui:
             group: Basic
-            order: 3
+            order: 4
         password:
           title: Password
           type: string
@@ -64,7 +64,7 @@ components:
           writeOnly: true
           x-walrus-ui:
             group: Basic
-            order: 5
+            order: 3
       x-walrus-ui:
         groupOrder: 
         - Basic
