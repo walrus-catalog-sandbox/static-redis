@@ -15,6 +15,7 @@ components:
           description: |
             Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
           default: {}
+          nullable: true
           additionalProperties:
             type: object
             x-walrus-ui:
@@ -39,6 +40,7 @@ components:
           type: array
           description: The readonly host list of the Redis service.
           default: []
+          nullable: true
           items:
             type: string
           x-walrus-ui:
@@ -50,6 +52,7 @@ components:
           type: number
           description: The port of the Redis service.
           default: 6379
+          nullable: true
           x-walrus-ui:
             group: Basic
             order: 3
