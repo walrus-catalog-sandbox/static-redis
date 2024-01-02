@@ -56,11 +56,3 @@ output "port" {
 output "password" {
   value = nonsensitive(module.this.password)
 }
-
-output "endpoints" {
-  value = module.this.endpoints
-}
-
-output "endpoints_readonly" {
-  value = module.this.endpoints_readonly
-}
