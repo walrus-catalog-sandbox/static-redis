@@ -26,7 +26,6 @@ components:
           default: []
           items:
             type: string
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             group: Basic
@@ -36,7 +35,6 @@ components:
           type: number
           description: The port of the Redis service.
           default: 6379
-          nullable: true
           x-walrus-ui:
             group: Basic
             order: 4
